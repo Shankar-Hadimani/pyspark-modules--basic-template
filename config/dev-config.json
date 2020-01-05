@@ -1,0 +1,27 @@
+{
+  "project_name": "asos_movie_analysis",
+  "steps_per_floor": 21,
+  "spark": {
+    "master": "local[*]",
+    "cores": 1,
+    "mode": "overwrite"
+  },
+  "Database": {
+    "db1_server_name": "0.0.0.0",
+    "db1_port": 0,
+    "db1_user_name": "user",
+    "db1_passwd": "passwdDoNotShare"
+  },
+  "FileSystem": {
+    "input": {
+      "movies": "resources/input/movies.dat",
+      "ratings": "resources/input/ratings.dat",
+      "users": "resources/input/users.dat"
+    },
+    "output": {
+      "movies_avg_rating": "src\\main\\resource\\output\\movies_avg_rating_by_user",
+      "movies_under_genre": "src\\main\\resource\\output\\total_movies_under_genre",
+      "movies_top_hundred": "src\\main\\resource\\output\\top_hundred_movies"
+    }
+  }
+}

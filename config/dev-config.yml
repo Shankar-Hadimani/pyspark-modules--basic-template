@@ -1,6 +1,7 @@
 project_name: asos_movie_analysis
+steps_per_floor: 21
 spark:
-  master: local
+  master: local[*]
   cores: 1
   mode: overwrite
 Database:
