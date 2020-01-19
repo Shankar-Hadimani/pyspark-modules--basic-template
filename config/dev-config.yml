@@ -1,5 +1,5 @@
 project_name: asos_movie_analysis
-steps_per_floor: 21
+project_home_dir: C:\\Users\\jassm\\PycharmProjects\\pyspark-asos
 spark:
   master: local[*]
   cores: 1
@@ -11,10 +11,10 @@ Database:
   db1_passwd: passwdDoNotShare
 FileSystem:
   input:
-    movies: resources/input/movies.dat
-    ratings: resources/input/ratings.dat
-    users: resources/input/users.dat
+    movies:  \\resources\\input\\movies.dat
+    ratings:  \\resources\\input\\ratings.dat
+    users:  \\resources\\input\\users.dat
   output:
-    movies_avg_rating: src\main\resource\output\movies_avg_rating_by_user
-    movies_under_genre: src\main\resource\output\total_movies_under_genre
-    movies_top_hundred: src\main\resource\output\top_hundred_movies
+    movies_avg_rating:  \\resources\\output\\movies_avg_rating_by_user
+    movies_under_genre:  \\resources\\output\\total_movies_under_genre
+    movies_top_hundred:  \\resources\\output\\top_hundred_movies

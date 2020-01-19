@@ -18,7 +18,7 @@ class Log4j:
         app_name = conf.get('spark.app.name')
 
         log4j = spark._jvm.org.apache.log4j
-        message_prefix = '<' + app_name + ' ' + app_id + '>'
+        message_prefix = '<' + app_name + ' :- ' + app_id + '>'
         self.logger = log4j.LogManager.getLogger(message_prefix)
 
     def error(self, message):

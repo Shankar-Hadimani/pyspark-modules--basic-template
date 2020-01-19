@@ -4,27 +4,23 @@ spark.py
 This module contains helper function to use with spark.
 """
 import json
+from os import environ, listdir, path
+from typing import Optional, List, Dict
 
-import yaml
 import __main__
 
-from os import environ, listdir, path
-from os.path import curdir
-from typing import Optional, List, Dict
+from dependencies import logging
 from pyspark import SparkFiles
 from pyspark.sql import SparkSession
 
-from dependencies import logging
 
-
-# def start_spark(app_name: str = 'my_app_name', master: str = 'local[*]', jar_packages: Optional[List[str]] = None,
-#                 files: Optional[List[str]] = None,
-#                 spark_config: Dict = None):
-def start_spark(app_name: str = 'my_app_name', master: str = 'local[*]', jar_packages=[],
-                files=[], spark_config={}):
+def start_spark(app_name: str = 'my_app_name', master: str = 'local[*]', jar_packages: Optional[List[str]] = None,
+                files: Optional[List[str]] = None,
+                spark_config: Dict = None):
     # detect execution environment
     if spark_config is None:
         spark_config = {}
+
     flag_reply = not (hasattr(__main__, '__file__'))
     flag_debug = 'DEBUG' in environ.keys()
 
@@ -60,16 +56,16 @@ def start_spark(app_name: str = 'my_app_name', master: str = 'local[*]', jar_pac
     spark_session = spark_builder.getOrCreate()
     spark_logger = logging.Log4j(spark_session)
 
+    # # # add spark files if ran in client mode
+    # spark_files = ','.join(list(files))
+    # for extra_file in spark_files:
+    #     spark_session.sparkContext.addPyFile(extra_file)
+
     # get config file if sent to cluster with ' --files  options'
     spark_files_dir = SparkFiles.getRootDirectory()
-    base_dir = path.abspath(curdir)
     config_files = [filename
                     for filename in listdir(spark_files_dir)
                     if filename.endswith('config.json')]
-    print(base_dir)
-    print(spark_files_dir)
-    for i in config_files:
-        print(i)
 
     if config_files:
         config_file_path = path.join(spark_files_dir, config_files[0])
