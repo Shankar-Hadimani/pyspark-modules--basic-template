@@ -9,5 +9,5 @@ setup(
     license='',
     author='jassm',
     author_email='shankar.hadimani@gmail.com',
-    description='setup pyspark project'
+    description='setup pyspark project', requires=['pandas']
 )

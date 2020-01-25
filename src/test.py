@@ -64,3 +64,4 @@ def get_schema() -> StructType:
 
 if __name__ == '__main__':
     main()
+
