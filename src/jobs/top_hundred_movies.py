@@ -10,6 +10,9 @@ from src.schemas import get_ratings_schema, get_movies_schema
 
 
 class TopMovies:
+    """
+    ETL Job - First Hundred Movies ranked top based on Average rating by each users
+    """
 
     def __init__(self):
         self.app_name = "Movies Average Rating By Users"

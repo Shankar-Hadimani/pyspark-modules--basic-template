@@ -8,6 +8,13 @@ from src.schemas import get_ratings_schema
 
 
 def transform_data(spark, rdd: RDD, schema: StructType) -> DataFrame:
+    """
+    Transforms and aggregates data from RDD and  result into a DataFrame
+    :param spark: Spark Session
+    :param rdd: Input RDD
+    :param schema: Input Schema to be applied
+    :return: a DataFrame output
+    """
     input_df = rdd.map(lambda x: x.split("::")).map(lambda x: [int(x[0]), int(x[1]), int(x[2]), int(x[3])])
     map_schema = spark.createDataFrame(input_df, schema)
     grp_df = map_schema.groupBy('UserID').agg({'MovieID': 'count', 'Ratings': 'avg'})
@@ -19,6 +26,9 @@ def transform_data(spark, rdd: RDD, schema: StructType) -> DataFrame:
 
 
 class MovieAvgRating:
+    """
+    ETL Job - Movies Average Rating
+    """
 
     def __init__(self):
         self.app_name = "Movies Average Ratings"

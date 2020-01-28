@@ -8,6 +8,9 @@ from src.schemas import get_movies_schema
 
 
 class MovieUnderRating:
+    """
+        ETL Job - Number of Movies grouped under each Genre
+    """
     def __init__(self):
         self.app_name = "Number of Movies under each Genres"
 
