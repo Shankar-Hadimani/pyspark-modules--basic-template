@@ -1,0 +1,28 @@
+{
+  "project_name": "asos_movie_analysis",
+  "project_home_dir": "C:\\Users\\jassm\\PycharmProjects\\pyspark-asos",
+  "steps_per_floor": 21,
+  "spark": {
+    "master": "local[*]",
+    "cores": 1,
+    "mode": "overwrite"
+  },
+  "Database": {
+    "db1_server_name": "0.0.0.0",
+    "db1_port": 0,
+    "db1_user_name": "user",
+    "db1_password": "passwordDoNotShare"
+  },
+  "FileSystem": {
+    "input": {
+      "movies": ${project_home_dir}"\\resources/input/movies.dat" ,
+      "ratings": ${project_home_dir}"\\resources/input/ratings.dat",
+      "users": ${project_home_dir}"\\resources/input/users.dat"
+    },
+    "output": {
+      "movies_avg_rating": ${project_home_dir}"\\resource\\output\\movies_avg_rating_by_user",
+      "movies_under_genre": ${project_home_dir}"\\resource\\output\\total_movies_under_genre",
+      "movies_top_hundred": ${project_home_dir}"\\resource\\output\\top_hundred_movies"
+    }
+  }
+}
