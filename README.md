@@ -1,1 +1,1 @@
-# pyspark-asos
+# pyspark template to setup project structure
